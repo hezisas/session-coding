@@ -1,28 +1,40 @@
+## Bank Acount Program
+## Hezi Sasson
+
+# print_action method is used in order to save repiting of code
+
 # print_action method expects two parameters "action" and "amount"
 def print_action(action, amount)
-  puts "You've asked to #{action} an amount of #{amount}$. Performing your request..."
+	if action == "view"
+  	puts "You've asked to view your current balance. Performing your request"
+	else  
+  	puts "You've asked to #{action} an amount of #{amount}$. Performing your request..."
+	end
 end
 
-balance = 1000
+balance = rand(100...1000)
+puts "random balance before the action is: #{balance}"
 
 print "Please enter your personal name:  "
 name = gets.chomp.capitalize!
 
-print "What action would you like to perform?  "
+print "What action would you like to perform? deposit withdraw or view "
 action = gets.chomp
 
-amount = 20
-
-print_action(amount)
+print "What is the amount you want to #{action}?"
+amount = gets.chomp.to_i
 
 if action == "withdraw"
   balance -= amount
 elsif action == "deposit"
   balance += amount
+else raise 'exception "This value is undefined"'
+end
+
+print_action(action,amount)
 
 
 puts "Hi #{name}, Your current balance was changed and is now: #{balance}$"  
-
 
 # Bank home assignment
 # ---------------------
