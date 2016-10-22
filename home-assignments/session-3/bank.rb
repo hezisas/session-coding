@@ -1,3 +1,4 @@
+#!/usr/bin/ruby
 ## Bank Acount Program
 ## Hezi Sasson
 
